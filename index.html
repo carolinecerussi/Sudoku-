@@ -1,84 +1,248 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
-  <script type="text/javascript" src="src/index.js"></script>
-  <script type="text/javascript" src="src/triangle.js"></script>
-  <link rel="stylesheet" href="css/styles.css">
-  <title>Sudoku</title>
+    <script type="text/javascript" src="src/index.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Sudoku</title>
 </head>
 <header>
     <h1>Sudoku</h1>
     <h2>game of wit and numbers</h2>
 </header>
+
 <body>
-    <div class="directions" >
-  <h2>Directions: </h2>
-  <p>This is where I explain the game of Sudoku</p>
-</div>
-<div class="sudoku form">
-  <form id="numberCheck-form">
-    <input id="space" type="text">
-    <input id="space" type="text">
-    <input id="space" type="text">
-    <input id="space" type="text">
-    <input id="space" type="text">
-    <input id="space" type="text">
-    <button type="submit">Submit</button>
-  </form>
-</div>
-  <div id="response"></div>
-</body>
-</html>
-
-
-<table class="sudoku_table">
-<tbody>
-    <tr class="sudoku_table-row">
-    <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="0" contenteditable></td> 
-    <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="1" contenteditable></td> 
-    <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable" data-cell-index="2" contenteditable></td> 
-    <td class="sudoku_table-cell" data-cell-index="3" >9</td> 
-    <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="4" contenteditable></td> 
-    <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable" data-cell-index="5" contenteditable></td> 
-    <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="6" contenteditable></td> 
-    <td class="sudoku_table-cell" data-cell-index="7" >5</td> 
-    <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable" data-cell-index="8" contenteditable></td> 
-    <!-- //eventually try to find a code to make the non editable numbers a math random of a number 1-9 -->
-    </tr>
-    <tr class="sudoku_table-row">
-        <td class="sudoku_table-cell" data-cell-index="9" >9</td> 
-        <td class="sudoku_table-cell" data-cell-index="10" >8</td> 
-        <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="11" >7</td> 
-        <td class="sudoku_table-cell" data-cell-index="12" >6</td> 
-        <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="13" contenteditable></td>  
-        <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="14" >4</td> 
-        <td class="sudoku_table-cell" data-cell-index="15" >3</td>
-        <td class="sudoku_table-cell" data-cell-index="16" >2</td>
-        <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="17" >1</td>   
-       </tr>
-    <tr class="sudoku_table-row sudoku_table-row--separator">
-        <td class="sudoku_table-cell" data-cell-index="18" >6</td> 
-        <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="19" contenteditable></td> 
-        <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable" data-cell-index="20" contenteditable></td> 
-        <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="21" contenteditable></td> 
-        <td class="sudoku_table-cell" data-cell-index="22" >2</td> 
-        <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="23" >1</td> 
-        <td class="sudoku_table-cell" data-cell-index="24" >9</td> 
-        <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="25" contenteditable></td> 
-        <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable" data-cell-index="26" contenteditable></td> 
-        </tr>
-        <tr class="sudoku_table-row">
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="0" contenteditable></td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="1" contenteditable></td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="2" contenteditable></td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="3" >9</td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="4" contenteditable></td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="5" contenteditable></td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="6" contenteditable></td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="7" >5</td> 
-            <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="8" contenteditable></td> 
-            <!-- //eventually try to find a code to make the non editable numbers a math random of a number 1-9 -->
+    <table class="sudoku_table">
+        <tbody>
+            <tr class="sudoku_table-row">
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="0" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="1" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="2" contenteditable></td>
+                <td class="sudoku_table-cell" data-cell-index="3">9</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="4" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="5" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="6" contenteditable></td>
+                <td class="sudoku_table-cell" data-cell-index="7">5</td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="8" contenteditable></td>
+                <!-- //eventually try to find a code to make the non editable numbers a math random of a number 1-9 -->
             </tr>
-</tbody>
+            <tr class="sudoku_table-row">
+                <td class="sudoku_table-cell" data-cell-index="9">9</td>
+                <td class="sudoku_table-cell" data-cell-index="10">8</td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="11">7</td>
+                <td class="sudoku_table-cell" data-cell-index="12">6</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="13" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="14">4</td>
+                <td class="sudoku_table-cell" data-cell-index="15">3</td>
+                <td class="sudoku_table-cell" data-cell-index="16">2</td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="17">1</td>
+            </tr>
+            <tr class="sudoku_table-row sudoku_table-row--separator">
+                <td class="sudoku_table-cell" data-cell-index="18">6</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="19" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="20" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="21" contenteditable></td>
+                <td class="sudoku_table-cell" data-cell-index="22">2</td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="23">1</td>
+                <td class="sudoku_table-cell" data-cell-index="24">9</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="25" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="26" contenteditable></td>
+            </tr>
+            <tr class="sudoku_table-row">
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="0" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="1" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="2" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="3">9</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="4" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="5" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="6" contenteditable></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="7">5</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="8" contenteditable></td>
+                <!-- //eventually try to find a code to make the non editable numbers a math random of a number 1-9 -->
+            </tr>
+            <tr class="sudoku__table-row">
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="27" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="28" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku__table-cell--editable"
+                    data-cell-index="29" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="30" contenteditable=""></td>
+                <td class="sudoku_table-cell" data-cell-index="31">6</td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku__table-cell--editable"
+                    data-cell-index="32" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="33" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="34" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="35">2</td>
+            </tr>
+            <tr class="sudoku__table-row">
+                <td class="sudoku_table-cell sudoku__table-cell--editable" data-cell-index="36" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku__table-cell--editable" data-cell-index="37" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku__table-cell--separator" data-cell-index="38">2</td>
+                <td class="sudoku_table-cell sudoku__table-cell--editable" data-cell-index="39" contenteditable=""></td>
+                <td class="sudoku_table-cell" data-cell-index="40">1</td>
+                <td class="sudoku_table-cell sudoku__table-cell--separator" data-cell-index="41">8</td>
+                <td class="sudoku_table-cell sudoku__table-cell--editable" data-cell-index="42" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku__table-cell--editable" data-cell-index="43" contenteditable=""></td>
+                <td class="sudoku_table-cell sudoku__table-cell--separator sudoku__table-cell--editable"
+                    data-cell-index="44" contenteditable=""></td>
+            </tr>
+            <tr class="sudoku_table-row sudoku__table-row--separator">
+                <td class="sudoku_table-cell" data-cell-index="45">4</td>
+                <td class="sudoku_table-cell" data-cell-index="46">3</td>
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable" data-cell-index="47" contenteditable
+                ></td>
+                <td class="sudoku_table-cell" data-cell-index="48">5</td>
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="49" contenteditable></td>
 
-</table>
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="50">
+                    2
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="51" contenteditable>
+
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="52" contenteditable="">
+
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="53">
+                    6
+                </td>
+            </tr>
+            <tr class="sudoku__table-row">
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="54" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="55" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--separator" data-cell-index="56">
+                    9
+                </td>
+
+                <td class="sudoku__table-cell" data-cell-index="57">
+                    1
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="58" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--separator" data-cell-index="59">
+                    6
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="60" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell" data-cell-index="61">
+                    3
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--separator sudoku__table-cell--editable"
+                    data-cell-index="62" contenteditable></td>
+            </tr>
+            <tr class="sudoku__table-row">
+
+
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="63" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="64" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--separator sudoku__table-cell--editable"
+                    data-cell-index="65" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="66" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="67" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--separator sudoku__table-cell--editable"
+                    data-cell-index="68" contenteditable="">
+
+                </td>
+
+                <td class="sudoku__table-cell" data-cell-index="69">
+                    1
+                </td>
+
+                <td class="sudoku__table-cell sudoku__table-cell--editable" data-cell-index="70" contenteditable="">
+
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="71" contenteditable="">
+
+                </td>
+            </tr>
+            <tr class="sudoku_table-row sudoku_table-row--separator">
+
+
+
+                <td class="sudoku_table-cell" data-cell-index="72">
+                    1
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="73" contenteditable="">
+
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="74" contenteditable="">
+
+                </td>
+
+                <td class="sudoku_table-cell" data-cell-index="75">
+                    8
+                </td>
+
+                <td class="sudoku_table-cell" data-cell-index="76">
+                    3
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--separator" data-cell-index="77">
+                    5
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--editable" data-cell-index="78" contenteditable="">
+
+                </td>
+
+                <td class="sudoku_table-cell" data-cell-index="79">
+                    4
+                </td>
+
+                <td class="sudoku_table-cell sudoku_table-cell--separator sudoku_table-cell--editable"
+                    data-cell-index="80" contenteditable="">
+
+                </td>
+
+
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>
